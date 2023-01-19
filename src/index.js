@@ -2,79 +2,53 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
 import PlantService from './plant_service';
+import TimerService from './timer_service';
 
-//Business Logic
+// Business Logic
 
 async function getPlantInfo(plant) {
   const response = await PlantService.getPlantInfo(plant);
-  // let html ='';
-  response.forEach(element => {
-    const div = document.createElement('div');
-    const image = document.createElement('img');
-    const name = document.createElement('h5');
-    const water = document.createElement('p');
-    const light = document.createElement('p');
-    const show = document.querySelector(`#showResponse`);
-    div.classList = 'card'
-    image.classList = 'card-image'
-    image.src = element.img
-    name.innerText = `${element.common}`
-    // name.innerText = `${element[`Common name`]}`
-    water.innerHTML = `<strong>Watering: </strong>${element.watering}`
-    // water.innerHTML = `<strong>Watering: </strong>${element.Watering}`
-    light.innerHTML = `<strong>Light Needs: </strong>${element.ideallight}`
-    // light.innerHTML = `<strong>Light Needs: </strong>${element[`Light tolered`]}`
+  const div = document.createElement('div');
+  const image = document.createElement('img');
+  const name = document.createElement('h5');
+  const water = document.createElement('p');
+  const light = document.createElement('p');
+  const show = document.querySelector(`#showResponse`);
+  div.classList = 'card';
+  image.classList = 'card-image';
+  name.innerText = response[0].common;
+  water.innerHTML = `<strong>Watering: </strong>${response[0].watering}`;
+  light.innerHTML = `<strong>Light Needs: </strong>${response[0].ideallight}`;
 
-    div.appendChild(image),
-      div.appendChild(name),
-      div.appendChild(water),
-      div.appendChild(light),
-      show.appendChild(div)
-  });
+  div.appendChild(image);
+  div.appendChild(name);
+  div.appendChild(water);
+  div.appendChild(light);
+  show.appendChild(div);
 }
 
 function handleFormSubmission(event) {
-  event.preventDefault();
   let plant = document.querySelector('#plant').value;
+  event.preventDefault();
   getPlantInfo(plant);
 }
 
 window.addEventListener("load", function () {
   document.querySelector("form").addEventListener("submit", handleFormSubmission);
+  document.querySelector("reminder-form").addEventListener("submit", createReminder);
 });
 
-  //   let htmlSegment = `<div class='plantName> 
-  //                        <h2>${element.Categories} ${element[`Common name (fr.)`]}</h2>
-  //                       </div>
-  //                       <div class="showImg"> <img src='${element.img}'>
-  //                       </div>`;
-  //                       html += htmlSegment;
-  // });
-  // document.querySelector('#showResponse').innerHTML = html;
-  // if (response) {
-  //   printElements(response, plant);
-  // } else {
-  //   printError(response, plant)
-  // }
-// }
-//     .then(function (response) {
-//       let output = ''
-//       response.map(function (plant) {
-//         output += `${plant[`Common name (fr.)`]}`;
-//       })
-//       document.querySelector('#showResponse').innerText = output;
-//     }, function (errorMessage) {
-//       printError(errorMessage);
-//     });
-// }
 
-// function printElements(response, plant) {
-//   let output = response;
-//   console.log(response);
-//   document.querySelector('#showResponse').innerText = `Display results for ${plant}: ${output}`;
-// }
+// UI Logic
 
-// function printError(errorMessage) {
-//   document.querySelector('#showResponse').innerText = errorMessage;
-// }
+function reminderMsg(days) {
+  let msg = `Reminder to water your plants! You last watered ${days} days ago.`;
+  //return the message in a modal popup box using css
+  return msg;
+}
 
+function createReminder() {
+  let days = document.querySelector("#days").value;
+  let time = days * 86400000;
+  setTimeout(reminderMsg(days), time);
+}
