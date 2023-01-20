@@ -8,13 +8,13 @@ export default class GetPlantIdFromImage {
           'Content-Type': 'multipart/form-data'
         },
         body: {
-          'images': '../assets/services/unknown.jpg',
+          'images': '../assets/images/unknown.jpg',
           'organs': 'leaf'
         }
-      })
+      });
       const jsonifiedResponse = await response.json();
       if (!response.ok) {
-        const errorMessage = `${response.statusText}`;
+        const errorMessage = `${response.statusCode}: ${response.error}: ${response.message}`;
         throw new Error(errorMessage);
       }
       return jsonifiedResponse;

@@ -10,9 +10,11 @@
       <img src="./assets/images/unknown.jpg" alt="A close up photo of a plant with large, heart-shaped, dark green leaves with striking white stripes on them.">-->
       <br>
       <h1>Submit Your Plant Photo To Learn What Plant It Is!</h1>
-      <form action="/action_page.php">
-        <input type="file" id="myFile" name="filename">
-        <input type="submit">
+      <div id="imageDisplay"></div>
+      <form action="/action_page.php" id="upload">
+        <input type="file" accept="image/*" id="myFile" name="filename">
+        <br>
+        <button>Upload</button>
       </form>
       <p id="showAPIResponse"></p>
       <p id="showErrorResponse"></p>
