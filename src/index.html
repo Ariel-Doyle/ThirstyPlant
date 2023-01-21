@@ -12,10 +12,12 @@
       <h1>Submit Your Plant Photo To Learn What Plant It Is!</h1>
       <div id="imageDisplay"></div>
       <form action="/action_page.php" id="upload">
-        <input type="file" accept="image/*" id="myFile" name="filename">
+        <input type="file" accept="image/jpeg, image/png, image/jpg" id="myFile" name="filename">
         <br>
-        <button>Upload</button>
+        <button type="button" id="clickBtn">Upload</button>
+        <button type="submit" id="submitBtn">Submit</button>
       </form>
+      <output id="output"></output>
       <p id="showAPIResponse"></p>
       <p id="showErrorResponse"></p>
     </div>
