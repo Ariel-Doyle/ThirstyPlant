@@ -5,10 +5,11 @@
   </head>
   <body>
     <div class="container">
-      <h1>Upload Your Plant Photo To Learn What Plant It Is!</h1>
+      <h1>Add The URL Of A Plant Image To Identify The Plant!</h1>
       <div id="imageDisplay"></div>
-      <form id="upload">
-        <input type="file" accept="image/jpeg, image/png, image/jpg" id="myFile" name="filename">
+      <form id="addUrl">
+        <label id="imageUrl">Add your url here:</label>
+        <input type="url" id="imageUrl" name="imageUrl">
         <br>
         <output id="output"></output>
         <button type="submit" id="clickBtn">Upload</button>
