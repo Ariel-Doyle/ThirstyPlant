@@ -3,13 +3,43 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import './css/styles.css';
 
+
+let imagesArray = [];
+
+window.addEventListener("change", function(e) {
+  e.preventDefault();
+  let input = document.querySelector("#myFile");
+  const file = input.files;
+  imagesArray.push(file[0]);
+  displayImages();
+});
+
+function displayImages() {
+  output = document.querySelector("#output");
+  let images = "";
+  imagesArray.forEach((image, index) => {
+    images += `<div class="image">
+                <img src="${URL.createObjectURL(image)}" alt="image">
+                <span onclick="deleteImage(${index})">&times;</span>
+               </div>`
+  });
+  output.innerHTML = images;
+}
+
+function deleteImage(index) {
+  imagesArray.splice(index, 1);
+  displayImages();
+}
+
+
+
 function getPlantID() {
   const myHeaders = new Headers();
   myHeaders.append("accept", "application/json");
   myHeaders.append("Content-Type", "multipart/form-data");
 
   const formdata = new FormData();
-  formdata.append("images", ["/C:/Users/Schadenfreude/OneDrive/Desktop/epicodus_projects/ThirstyPlant/src/assets/images/succulent.jpg"]);
+  formdata.append("images", imagesArray);
   formdata.append("organs", "leaf");
 
   const requestOptions = {

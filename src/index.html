@@ -5,19 +5,14 @@
   </head>
   <body>
     <div class="container">
-      <!--<img src="./assets/images/Pothos.jpg" alt="Silver vine pothos potted plant with a white background and vine hanging down, being held up by a human hand.">
-      <img src="./assets/images/succulent.jpg" alt="An image of succulents closse together filling up the image frame.">
-      <img src="./assets/images/unknown.jpg" alt="A close up photo of a plant with large, heart-shaped, dark green leaves with striking white stripes on them.">-->
-      <br>
       <h1>Submit Your Plant Photo To Learn What Plant It Is!</h1>
       <div id="imageDisplay"></div>
-      <form action="/action_page.php" id="upload">
+      <form id="upload">
         <input type="file" accept="image/jpeg, image/png, image/jpg" id="myFile" name="filename">
         <br>
+        <output id="output"></output>
         <button type="button" id="clickBtn">Upload</button>
-        <button type="submit" id="submitBtn">Submit</button>
       </form>
-      <output id="output"></output>
       <p id="showAPIResponse"></p>
       <p id="showErrorResponse"></p>
     </div>
