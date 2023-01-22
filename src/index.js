@@ -7,7 +7,7 @@ import GetPlantIdFromImage from './services/Plant_Id_API.js';
 
 async function getPlantId() {
   const response = await GetPlantIdFromImage.getPlantId();
-  if (response.bestMatch) {
+  if (response.query) {
     printElements(response);
   } else {
     printError(response);
