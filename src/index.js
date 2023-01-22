@@ -34,7 +34,7 @@ function getPlantID() {
   myHeaders.append("Content-Type", "multipart/form-data");
 
   const formdata = new FormData();
-  formdata.append("images", file);
+  formdata.append("images", file, 'unknown.jpg');
   formdata.append("organs", "leaf");
 
   const requestOptions = {
