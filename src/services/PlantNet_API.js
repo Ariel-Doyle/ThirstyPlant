@@ -1,4 +1,3 @@
-//Ariel_Branch
 export default class GetPlantIdFromURL {
   static async getPlantId() {
     try {

@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import './css/styles.css';
 import GetPlantIdFromLocalImage from './services/Test_Code.js';
-import GetPlantIdFromURL from './services/Plant_Id_API.js';
+import GetPlantIdFromURL from './services/PlantNet_API.js';
 
 async function getPlantIdFromURL() {
   const response = await GetPlantIdFromURL.getPlantId();
@@ -16,13 +16,7 @@ async function getPlantIdFromURL() {
 }
 
 function printElements(response) {
-  const output = document.querySelector('output');
-  let img = document.createElement("img");
-  img.src = `${response.results[0].images[0].url.m}`;
-  output.appendChild(img);
-
-  
-  const output = document.querySelector('output');
+  let output = document.querySelector('output');
   let img = document.createElement("img");
   img.src = `${response.results[0].images[0].url.m}`;
   output.appendChild(img);
@@ -91,33 +85,3 @@ async function getPlantIdFromLocalImage() {
     printError(response);
   }
 }
-
-// function getPlantID() {
-//   const myHeaders = new Headers();
-//   myHeaders.append("accept", "application/json");
-
-//   const formData = new FormData();
-//   formData.append("images", imagesArray[0]);
-//   formData.append("organs", "leaf");
-
-//   const requestOptions = {
-//     method: 'POST',
-//     headers: myHeaders,
-//     body: formData
-//   };
-
-//   let jResponse = response.json();
-
-//   return fetch(`https://my-api.plantnet.org/v2/identify/all?include-related-images=true&no-reject=true&lang=en&api-key=2b10ueg7nSzYau5fSFuJ4PfQ8e`, requestOptions)
-//     .then(function(response) {
-//       if (!response.ok) {
-//         const errorMessage = `${jResponse.statusCode} ${jResponse.error} ${jResponse.message}`;
-//         throw new Error(errorMessage);
-//       } else {
-//         return jResponse;
-//       }
-//     })
-//     .catch(function(error) {
-//       return error;
-//     });
-// }
