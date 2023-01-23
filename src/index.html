@@ -1,30 +1,19 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Thirsty Plant</title>
+    <title>Thirsty Plant Reminder</title>
   </head>
   <body>
-    <div class="container">
-      <h1>Add The URL Of A Plant Image To Identify The Plant!</h1>
-      <div id="imageDisplay"></div>
-      <form id="addUrl">
-        <label id="imageUrl">Add your url here:</label>
-        <input type="url" id="imageUrl" name="imageUrl">
-        <br>
-        <output id="output"></output>
-        <button type="submit" id="clickBtn">Check ID</button>
-      </form>
-      <br>
-      <h1>Or Upload An Image To Discover What Plant You've Found!</h1>
-      <form id="addLocalImage">
-        <input type="file" accept="image/jpeg, image/png, image/jpg">
-        <br>
-        <output id="output" ></output>
-        <br>
-        <button type="submit" id="clickBtn">Check ID</button>
-      </form>
-      <p id="showAPIResponse"></p>
-      <p id="showErrorResponse"></p>
+    <div>
+      <img src="images/THIRSTY_PLANT_5.png" alt="green watering can pouring into a pot with a germinating seed" class="logo">
+    </div>
+    <div>
+      <h3>Type in a plant name here to get its information!</h3>
+      <input type="text" id="name-search" name="name-search">
+    </div>
+    <div>
+      <h3>Upload a picture of your plant to know what kind it is!</h3>
+      <input type="file" id="image-search" name="image-search">
     </div>
   </body>
 </html>
