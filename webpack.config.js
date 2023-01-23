@@ -27,7 +27,6 @@ module.exports = {
     new Dotenv()
   ],
   module: {
-
     rules: [
       {
         test: /\.(gif|png|avif|jpe?g)$/,
@@ -46,8 +45,7 @@ module.exports = {
         use: [
           'html-loader'
         ]
-      },
-      
+      },      
       {
         
         test: /\.css$/,
