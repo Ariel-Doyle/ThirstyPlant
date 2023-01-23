@@ -76,7 +76,7 @@ window.addEventListener("load", function() {
 // }
 
 async function getPlantIdFromLocalImage() {
-  const response = await GetPlantIdFromLocalImage.GetPlantID();
+  const response = await GetPlantIdFromLocalImage.GetPlantID(imagesArray);
   if (response.query) {
     printElements(response);
   } else {
