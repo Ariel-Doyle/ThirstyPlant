@@ -27,14 +27,8 @@ module.exports = {
     new Dotenv()
   ],
   module: {
+
     rules: [
-      {
-        test: /\.css$/,
-        use: [
-          'style-loader',
-          'css-loader'
-        ]
-      },
       {
         test: /\.(gif|png|avif|jpe?g)$/,
         use: [
@@ -52,7 +46,16 @@ module.exports = {
         use: [
           'html-loader'
         ]
-      }
-    ]
-  }
+      },
+      
+      {
+        
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader'
+          ]
+        }
+      ]
+    }
 };
