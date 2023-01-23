@@ -22,6 +22,12 @@ function printElements(response) {
   output.appendChild(img);
 
   
+  const output = document.querySelector('output');
+  let img = document.createElement("img");
+  img.src = `${response.results[0].images[0].url.m}`;
+  output.appendChild(img);
+
+  
   document.querySelector('#showAPIResponse').innerText = `Your plant ID top match is: ${response.bestMatch}, 
   Common Names are: ${response.results[0].species.commonNames},
 
@@ -30,6 +36,8 @@ function printElements(response) {
   ${response.results[4].species.commonNames} ${response.results[4].images[0].url.m}`;
 }
 
+function printError(error) {
+  document.querySelector('#showErrorResponse').innerText = `There was an error accessing the plant information: ${error}`;
 function printError(error) {
   document.querySelector('#showErrorResponse').innerText = `There was an error accessing the plant information: ${error}`;
 }

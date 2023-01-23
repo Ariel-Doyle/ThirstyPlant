@@ -20,7 +20,7 @@ module.exports = {
       verbose: true
     }),
     new HtmlWebpackPlugin({
-      title: 'Shape Tracker',
+      title: 'ThirstyPlant',
       template: './src/index.html',
       inject: 'body'
     }),
@@ -28,13 +28,6 @@ module.exports = {
   ],
   module: {
     rules: [
-      {
-        test: /\.css$/,
-        use: [
-          'style-loader',
-          'css-loader'
-        ]
-      },
       {
         test: /\.(gif|png|avif|jpe?g)$/,
         use: [
@@ -52,7 +45,15 @@ module.exports = {
         use: [
           'html-loader'
         ]
-      }
-    ]
-  }
+      },      
+      {
+        
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader'
+          ]
+        }
+      ]
+    }
 };
