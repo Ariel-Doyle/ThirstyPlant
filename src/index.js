@@ -9,7 +9,7 @@ import GetPlantIdFromURL from './services/PlantNet_URL_API.js';
 //Business
 
 async function getPlantIdFromURL() {
-  const response = await GetPlantIdFromURL.getPlantId();
+  const response = await GetPlantIdFromURL.getPlantId(imageInput);
   if (response.query) {
     printElements(response);
   } else {
@@ -74,7 +74,7 @@ function printError(error) {
   document.querySelector('#showErrorResponse').innerText = `There was an error accessing the plant information: ${error}`;
 }
 
-let imageInput = document.getElementById("imageUrl");
+let imageInput;
 
 window.addEventListener("load", function() {
   let formImage = document.getElementById('addLocalImage');
@@ -88,10 +88,14 @@ window.addEventListener("load", function() {
   let formUrl = document.getElementById('addUrl');
 
   formUrl.addEventListener("input", function() {
+    imageInput = document.querySelector('#imageUrl').value;
     let image = document.getElementById("image");
-    if (imageInput.value) {
-      image.src = imageInput.value;
+    if (imageInput) {
+      image.src = imageInput;
     }
+    window.alert(image.src);
+    console.log(imageInput);
+    return imageInput;
   });
 
   let imageBtn = document.getElementById('imageBtn');

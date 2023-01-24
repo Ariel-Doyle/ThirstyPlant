@@ -13,7 +13,7 @@ export default class GetPlantIdFromLocalImage {
       body: formData
     };
   
-    return fetch(`https://my-api.plantnet.org/v2/identify/all?include-related-images=true&no-reject=true&lang=en&api-key=2b10ueg7nSzYau5fSFuJ4PfQ8e`, requestOptions)
+    return fetch(`https://my-api.plantnet.org/v2/identify/all?include-related-images=true&no-reject=true&lang=en&api-key=${process.env.PlantNet_API_Key}`, requestOptions)
       .then(function(response) {
         if (!response.ok) {
           const jResponse = response.json();
