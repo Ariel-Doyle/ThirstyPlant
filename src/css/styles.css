@@ -34,3 +34,17 @@ output .image span {
 output .image span:hover {
   opacity: 0.8;
 }
+
+#showAPIResponse {
+  float:right;
+}
+
+.inputColumn {
+  float: left;
+  width: 50%;
+}
+
+.responseColumn {
+  float: right;
+  width: 50%;
+}
