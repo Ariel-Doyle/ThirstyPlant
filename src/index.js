@@ -44,13 +44,13 @@ function displayLocalImages() {
   let imageOutput = document.querySelector("#imageOutput");
   let images = "";
 
-  localImagesArray.forEach((image, index) => {
-    images += `<div class="image">
+  localImagesArray.forEach((image) => {
+    images += `<div class="localImageDisplayDiv">
                 <img src="${URL.createObjectURL(image)}" alt="image">
-                <span onclick="deleteImage${(index)}">&times;</span>
-                </div>`;
+               </div>`;
   });
   imageOutput.innerHTML = images;
+
 }
 
 // function deleteImage(index) {
@@ -74,13 +74,13 @@ function printElementsForImageId(response) {
 
 function printElements(response, plant) {
   document.querySelector('#showResponse').innerHTML = "";
-  console.log(plant);
-  console.log(response[0]['Common name'][0]);
+  // console.log(plant);
+  // console.log(response[0]['Common name'][0]);
   let thisArray = (response.filter(function (element) {
     if (element['Common name'] === null) {
-      console.log('null');
+      // console.log('null');
     } else if (element['Common name'][0] === plant) {
-      console.log(element);
+      // console.log(element);
       return element;
     }
   }));
@@ -134,7 +134,7 @@ window.addEventListener("load", function() {
     if (imageInput) {
       image.src = imageInput;
     }
-    return imageInput;    
+    return imageInput;
   });
 
   let imageBtn = document.getElementById('imageBtn');
@@ -156,7 +156,7 @@ window.addEventListener("load", function() {
   plantButton.addEventListener("click", function() {
     let plant = document.querySelector('#plant').value;
     getPlantInfo(plant);
-  });
+  });  
 });
 
 
