@@ -47,16 +47,15 @@ function displayLocalImages() {
   localImagesArray.forEach((image, index) => {
     images += `<div class="image">
                 <img src="${URL.createObjectURL(image)}" alt="image">
-                <span onclick="deleteImage(${index})">&times;</span>
+                <span onclick="deleteImage${(index)}">&times;</span>
                 </div>`;
   });
-
   imageOutput.innerHTML = images;
 }
 
 // function deleteImage(index) {
-//   imagesArray.splice(index, 1);
-//   displayImages();
+//   localImagesArray.splice(index, 1);
+//   displayLocalImages();
 // }
 
 function printElementsForImageId(response) {
@@ -116,12 +115,6 @@ function printError(errorMessage) {
   document.querySelector('#showResponse').innerText = errorMessage;
 }
 
-function handleFormSubmission(event) {
-  event.preventDefault();
-  let plant = document.querySelector('#plant').value;
-  getPlantInfo(plant);
-}
-
 let imageInput;
 
 window.addEventListener("load", function() {
@@ -141,9 +134,7 @@ window.addEventListener("load", function() {
     if (imageInput) {
       image.src = imageInput;
     }
-    window.alert(image.src);
-    console.log(imageInput);
-    return imageInput;
+    return imageInput;    
   });
 
   let imageBtn = document.getElementById('imageBtn');
@@ -160,7 +151,12 @@ window.addEventListener("load", function() {
     getPlantIdFromURL();
   });
 
-  document.querySelector("form").addEventListener("submit", handleFormSubmission);
+  let plantButton = document.querySelector('#getPlant');
+
+  plantButton.addEventListener("click", function() {
+    let plant = document.querySelector('#plant').value;
+    getPlantInfo(plant);
+  });
 });
 
 

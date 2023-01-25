@@ -115,3 +115,15 @@ li a:hover:not(.active) {
 .logo {
   width: 4em;
 }
+
+.submit-image {
+  width: 10em;
+}
+
+.float-right {
+  float: right;
+}
+
+#imageBtn {
+  float: right;
+}

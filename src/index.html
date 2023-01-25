@@ -4,25 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thirsty Plant</title>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
   </head>
   <body>
     <ul class="left">
-      <li><a href="index.html"><img class="logo" src="../img/thirsty.jpeg" alt="logo image of a green can watering a germinating seed in a pot"></a></li>
+      <li><a href="index.html"><img class="logo" src="./assets/images/THIRSTY_PLANT_5.png" alt="logo image of a green can watering a germinating seed in a pot"></a></li>
       <li><a class="active" href="#home">Home</a></li>
       <li><a href="#contact">Contact</a></li>
       <li><a href="./about.html">About</a></li>
       <li class="right"><a href="#signUp">Sign Up</a></li>
       <li class="right"><a href="logIn">Log In</a></li>
-    </ul><br><br><br>
+    </ul><br>
     <div class="container">
       <div class="inputColumn">
-        <h1>Add The URL Of A Plant Image To Identify The Plant! (The url MUST be a .jpeg, .jpg, or .png, otherwise you will receive an error.)</h1>
+        <h1>Add The URL Of A Plant Image To Identify The Plant!</h1>
+        <h5>(Please use a .jpeg/.jpg or a .png image url)</h5>
         <form id="addUrl">
           <label for="imageUrl">Add your url here:</label>
           <input type="url" id="imageUrl" name="imageUrl">
           <br>
           <label for="image">
-          <img src="" id="image" alt="Image of found plant">
+          <img class="submit-image" id="image" alt="">
           <button type="submit" id="urlBtn">Check ID</button>
         </form>
         <br>
@@ -30,9 +32,7 @@
         <form id="addLocalImage">
           <label for="grabfile">
           <input type="file" accept="image/jpeg, image/png, image/jpg" id="grabFile">
-          <br>
           <output id="imageOutput" ></output>
-          <br>
           <button type="submit" id="imageBtn">Check ID</button>
         </form>
       </div>
@@ -42,10 +42,10 @@
       </div>
     </div>
     <div>
-      <form>
+      <form id="plantForm">
         <label for="plant">Plant</label>
         <input id="plant" type="text" name="plant">
-        <button type="submit" id="get-plant" class="btn btn-success">Get Plant Info!</button>
+        <button type="button" id="getPlant" class="btn btn-success">Get Plant Info!</button>
       </form>
     </div>
     <div>

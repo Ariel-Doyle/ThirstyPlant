@@ -7,9 +7,9 @@ const options = {
 };
 
 export default class PlantService {
-  static async getPlantInfo(plant) {
+  static async getPlantInfo() {
     try {
-      const response = await fetch(`https://house-plants2.p.rapidapi.com/`, options);
+      const response = await fetch('https://house-plants2.p.rapidapi.com/all', options);
       const jResponse = await response.json();
       if (!response.ok) {
         const errorMessage = `${response.status} ${response.statusText} ${jResponse.message}`;
