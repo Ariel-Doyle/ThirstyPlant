@@ -16,40 +16,44 @@
       <li class="right"><a href="logIn">Log In</a></li>
     </ul><br>
     <div class="container">
-      <div class="inputColumn">
-        <h1>Add The URL Of A Plant Image To Identify The Plant!</h1>
-        <h5>(Please use a .jpeg/.jpg or a .png image url)</h5>
-        <form id="addUrl">
-          <label for="imageUrl">Add your url here:</label>
-          <input type="url" id="imageUrl" name="imageUrl">
-          <br>
-          <label for="image">
-          <img class="submit-image" id="image">
-          <button type="submit" id="urlBtn">Check ID</button>
-        </form>
-        <br>
-        <h1>Or Upload An Image To Discover What Plant You've Found!</h1>
-        <form id="addLocalImage">
-          <label for="grabfile">
-          <input type="file" accept="image/jpeg, image/png, image/jpg" id="grabFile">
-          <output id="imageOutput" ></output>
-          <button type="submit" id="imageBtn">Check ID</button>
-        </form>
+      <div class = "row">
+        <div class="col-lg">
+          <h3>Add The URL Of A Plant Image To Identify The Plant</h3>
+          <h6>(Please use a .jpeg/.jpg or a .png image url)</h6>
+          <form id="addUrl">
+            <label for="imageUrl">Add your url here:</label>
+            <input type="url" id="imageUrl" name="imageUrl">
+            <br>
+            <label for="image">
+            <img class="submit-image" id="image" alt="">
+            <button type="button" id="urlBtn" class="btn btn-success">Check ID</button>
+            </form>
+          </div>
+          <br>      
+          <div class="col-lg">     
+            <h3>Upload An Image To Discover What Plant You've Found</h3>
+            <form id="addLocalImage">
+              <label for="grabfile">
+              <input type="file" accept="image/jpeg, image/png, image/jpg" id="grabFile">
+              <output id="imageOutput" ></output>
+              <button type="button" id="imageBtn" class="btn btn-success">Check ID</button>
+            </form>
+          </div>
+        <div class="col-lg">
+          <form id="plantForm">
+            <label for="plant">Plant</label>
+            <input id="plant" type="text" name="plant">
+            <button type="button" id="getPlant" class="btn btn-success">Get Plant Info!</button>
+          </form>
+        </div>
+        <div>
+          <p id="showAPIResponse"></p>
+          <p id="showErrorResponse"></p>
+        </div>
+        <div>
+          <p id="showResponse"></p>
+        </div>
       </div>
-      <div class="responseColumn">
-        <p id="showAPIResponse"></p>
-        <p id="showErrorResponse"></p>
-      </div>
-    </div>
-    <div>
-      <form id="plantForm">
-        <label for="plant">Plant</label>
-        <input id="plant" type="text" name="plant">
-        <button type="button" id="getPlant" class="btn btn-success">Get Plant Info!</button>
-      </form>
-    </div>
-    <div>
-      <p id="showResponse"></p>
     </div>
   </body>
 </html>

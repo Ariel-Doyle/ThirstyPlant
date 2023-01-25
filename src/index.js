@@ -134,7 +134,6 @@ window.addEventListener("load", function() {
     if (imageInput) {
       image.src = imageInput;
     }
-    return imageInput;
   });
 
   let imageBtn = document.getElementById('imageBtn');
