@@ -39,16 +39,6 @@ output .localImageDisplayDiv span {
   float:right;
 }
 
-.inputColumn {
-  float: left;
-  width: 50%;
-}
-
-.responseColumn {
-  float: right;
-  width: 50%;
-}
-
 h1 {
   text-align: center;
 }
@@ -124,6 +114,8 @@ li a:hover:not(.active) {
   float: right;
 }
 
-#imageBtn {
-  float: right;
+.btn {
+  align-self: center;
+  margin: 5%;
 }
+
