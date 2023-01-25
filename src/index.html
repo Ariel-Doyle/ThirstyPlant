@@ -1,19 +1,59 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-US">
   <head>
-    <title>Thirsty Plant Reminder</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thirsty Plant</title>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
   </head>
   <body>
-    <div>
-      <img src="images/THIRSTY_PLANT_5.png" alt="green watering can pouring into a pot with a germinating seed" class="logo">
-    </div>
-    <div>
-      <h3>Type in a plant name here to get its information!</h3>
-      <input type="text" id="name-search" name="name-search">
-    </div>
-    <div>
-      <h3>Upload a picture of your plant to know what kind it is!</h3>
-      <input type="file" id="image-search" name="image-search">
+    <ul class="left">
+      <li><a href="index.html"><img class="logo" src="./assets/images/thirsty.jpeg" alt="logo image of a green can watering a germinating seed in a pot"></a></li>
+      <li><a class="active" href="#home">Home</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="./about.html">About</a></li>
+      <li class="right"><a href="#signUp">Sign Up</a></li>
+      <li class="right"><a href="logIn">Log In</a></li>
+    </ul><br>
+    <div class="container">
+      <div class = "row">
+        <div class="col-lg">
+          <h3>Add The URL Of A Plant Image To Identify The Plant</h3>
+          <h6>(Please use a .jpeg/.jpg or a .png image url)</h6>
+          <form id="addUrl">
+            <label for="imageUrl">Add your url here:</label>
+            <input type="url" id="imageUrl" name="imageUrl">
+            <br>
+            <label for="image">
+            <img class="submit-image" id="image" alt="">
+            <button type="button" id="urlBtn" class="btn btn-success">Check ID</button>
+            </form>
+          </div>
+          <br>      
+          <div class="col-lg">     
+            <h3>Upload An Image To Discover What Plant You've Found</h3>
+            <form id="addLocalImage">
+              <label for="grabfile">
+              <input type="file" accept="image/jpeg, image/png, image/jpg" id="grabFile">
+              <output id="imageOutput" ></output>
+              <button type="button" id="imageBtn" class="btn btn-success">Check ID</button>
+            </form>
+          </div>
+        <div class="col-lg">
+          <form id="plantForm">
+            <label for="plant">Plant</label>
+            <input id="plant" type="text" name="plant">
+            <button type="button" id="getPlant" class="btn btn-success">Get Plant Info!</button>
+          </form>
+        </div>
+        <div>
+          <p id="showAPIResponse"></p>
+          <p id="showErrorResponse"></p>
+        </div>
+        <div>
+          <p id="showResponse"></p>
+        </div>
+      </div>
     </div>
   </body>
 </html>

@@ -1,0 +1,121 @@
+output{
+  width: 100%;
+  min-height: 150px;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 15px;
+  position: relative;
+  border-radius: 5px;
+}
+
+output .localImageDisplayDiv {
+  height: 150px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  position: relative;
+}
+
+output .localImageDisplayDiv img {
+  height: 100%;
+  width: 100%;
+}
+
+output .localImageDisplayDiv img:hover {
+  opacity: 0.8;
+}
+
+output .localImageDisplayDiv span {
+  position: absolute;
+  top: -4px;
+  right: 4px;
+  cursor: pointer;
+  font-size: 22px;
+  color: white;
+}
+
+#showAPIResponse {
+  float:right;
+}
+
+h1 {
+  text-align: center;
+}
+
+form {
+  text-align: center;
+}
+
+#showResponse {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+
+#signUp {
+  margin-left: auto;
+}
+
+.card {
+  flex: 0 0 200px;
+  margin: 10px;
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.3);
+  padding: 0 20px 20px;
+}
+
+.card-image {
+  display: block;
+  border: 0;
+  max-width: 100%;
+  height: auto;
+}
+
+.left {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: black;
+  top: 0;
+  width: 100%;
+}
+
+.right {
+  float: right;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.logo {
+  width: 4em;
+}
+
+.submit-image {
+  width: 10em;
+}
+
+.float-right {
+  float: right;
+}
+
+.btn {
+  align-self: center;
+  margin: 5%;
+}
+
