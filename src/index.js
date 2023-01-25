@@ -5,24 +5,34 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import './css/styles.css';
 import GetPlantIdFromLocalImage from './services/PlantNet_LocalImage_API.js';
 import GetPlantIdFromURL from './services/PlantNet_URL_API.js';
+import PlantService from './services/plant_service.js';
 
 //Business
 
 async function getPlantIdFromURL() {
   const response = await GetPlantIdFromURL.getPlantId(imageInput);
   if (response.query) {
-    printElements(response);
+    printElementsForImageId(response);
   } else {
-    printError(response);
+    printErrorForImageId(response);
   }
 }
 
 async function getPlantIdFromLocalImage() {
   const response = await GetPlantIdFromLocalImage.GetPlantID(localImagesArray);
   if (response.query) {
-    printElements(response);
+    printElementsForImageId(response);
   } else {
-    printError(response);
+    printErrorForImageId(response);
+  }
+}
+
+async function getPlantInfo(plant) {
+  const response = await PlantService.getPlantInfo();
+  if (response.toString().includes("Error")) {
+    printError(response, plant);
+  } else {
+    printElements(response, plant);
   }
 }
 
@@ -44,19 +54,12 @@ function displayLocalImages() {
   imageOutput.innerHTML = images;
 }
 
-// function displayUrlImage() {
-//   let urlOutput = document.getElementById('urlOuput');
-//   let img = new Image();
-//   img.src = document.querySelector('#imageUrl').value;
-//   urlOutput.innerHTML = `${img.src}`;
-// }
-
 // function deleteImage(index) {
 //   imagesArray.splice(index, 1);
 //   displayImages();
 // }
 
-function printElements(response) {
+function printElementsForImageId(response) {
   let output = document.querySelector('#showAPIResponse');
   let img = document.createElement("img");
   img.src = `${response.results[0].images[0].url.m}`;
@@ -70,8 +73,53 @@ function printElements(response) {
   ${response.results[4].species.commonNames} ${response.results[4].images[0].url.m}`;
 }
 
-function printError(error) {
+function printElements(response, plant) {
+  document.querySelector('#showResponse').innerHTML = "";
+  console.log(plant);
+  console.log(response[0]['Common name'][0]);
+  let thisArray = (response.filter(function (element) {
+    if (element['Common name'] === null) {
+      console.log('null');
+    } else if (element['Common name'][0] === plant) {
+      console.log(element);
+      return element;
+    }
+  }));
+  thisArray.forEach(element => {
+    const div = document.createElement('div');
+    const image = document.createElement('img');
+    const name = document.createElement('h5');
+    const water = document.createElement('p');
+    const light = document.createElement('p');
+    const show = document.querySelector('#showResponse');
+    div.classList = 'card';
+    image.classList = 'card-image';
+    image.src = element.img;
+    name.innerHTML = `<strong>${element['Common name']}</strong> \n ${element['Latin name']}`;
+    water.innerHTML = `<strong>Watering: </strong>${element.Watering}`;
+    light.innerHTML = `<strong>Light Needs: </strong>${element['Light tolered']}`;
+
+    div.appendChild(image),
+    div.appendChild(name),
+    div.appendChild(water),
+    div.appendChild(light),
+    show.appendChild(div);
+    document.querySelector('#plant').value = null;
+  });
+}
+
+function printErrorForImageId(error) {
   document.querySelector('#showErrorResponse').innerText = `There was an error accessing the plant information: ${error}`;
+}
+
+function printError(errorMessage) {
+  document.querySelector('#showResponse').innerText = errorMessage;
+}
+
+function handleFormSubmission(event) {
+  event.preventDefault();
+  let plant = document.querySelector('#plant').value;
+  getPlantInfo(plant);
 }
 
 let imageInput;
@@ -111,4 +159,9 @@ window.addEventListener("load", function() {
     e.preventDefault();
     getPlantIdFromURL();
   });
+
+  document.querySelector("form").addEventListener("submit", handleFormSubmission);
 });
+
+
+

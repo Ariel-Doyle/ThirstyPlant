@@ -48,3 +48,70 @@ output .image span:hover {
   float: right;
   width: 50%;
 }
+
+h1 {
+  text-align: center;
+}
+
+form {
+  text-align: center;
+}
+
+#showResponse {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+
+#signUp {
+  margin-left: auto;
+}
+
+.card {
+  flex: 0 0 200px;
+  margin: 10px;
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.3);
+  padding: 0 20px 20px;
+}
+
+.card-image {
+  display: block;
+  border: 0;
+  max-width: 100%;
+  height: auto;
+}
+
+.left {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: black;
+  top: 0;
+  width: 100%;
+}
+
+.right {
+  float: right;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.logo {
+  width: 4em;
+}
