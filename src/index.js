@@ -36,6 +36,16 @@ async function getPlantInfo(plant) {
   }
 }
 
+// function getPlantInfo(plant) {
+//   let plantList = JSON.parse(sessionStorage.getItem('plantList'));
+//   if (plantList.toString().includes("Error")) {
+//     printError(plantList, plant);
+//   } else {
+//     printElements(plantList, plant);
+//   }
+//   console.log(plantList[0]);
+// }
+
 //UI
 
 let localImagesArray = [];
@@ -78,7 +88,7 @@ function printElements(response, plant) {
   // console.log(response[0]['Common name'][0]);
   let thisArray = (response.filter(function (element) {
     if (element['Common name'] === null) {
-      // console.log('null');
+      console.log('null');
     } else if (element['Common name'][0] === plant) {
       // console.log(element);
       return element;
@@ -118,6 +128,11 @@ function printError(errorMessage) {
 let imageInput;
 
 window.addEventListener("load", function() {
+  // const response = PlantService.getPlantInfo();
+  // response.then(function(result) {
+  //   sessionStorage.setItem('plantList', JSON.stringify(result));
+  // });
+
   let formImage = document.getElementById('addLocalImage');
   
   formImage.addEventListener("change", function() {
