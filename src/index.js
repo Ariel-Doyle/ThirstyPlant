@@ -78,7 +78,7 @@ function printElements(response, plant) {
   // console.log(response[0]['Common name'][0]);
   let thisArray = (response.filter(function (element) {
     if (element['Common name'] === null) {
-      // console.log('null');
+      console.log('null');
     } else if (element['Common name'][0] === plant) {
       // console.log(element);
       return element;
