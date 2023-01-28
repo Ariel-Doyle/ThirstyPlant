@@ -17,6 +17,8 @@
 - _node package manager(npm)_
 - _JSON_
 - _Web APIs_
+- _Bootstrap_
+- _Markdown_
 - _PlantNet API_
 - _Rapid API:HousePlant API_
 
